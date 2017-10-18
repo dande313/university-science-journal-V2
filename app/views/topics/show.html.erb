@@ -5,3 +5,10 @@
 <% end %>
 
 <h1><%= @topic.name %></h1>
+<%= @topic.articletopics.each do |articletopic| %>
+	<% if articletopic.comment %>
+		<p><%= articletopic.comment %></p>
+	<%end%>
+<%end%>
+
+<p></p>

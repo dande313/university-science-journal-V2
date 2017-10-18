@@ -3,6 +3,12 @@
 <% @topics.each do |topic| %>
   <div>
   	<h4><%= topic.name %></h4>
-  	<p><%= topic.department.name%></p><br>
+  	<p><%= topic.department.name%> Department</p>
+  	<% topic.article_topics.each do |articletopic| %>
+		<% if articletopic.comment != nil %>
+			<p>Comment: <%= articletopic.comment %></p>
+		<%end%>
+	<%end%>
+	-------------------------------------------------------------
   </div>
 <% end %>

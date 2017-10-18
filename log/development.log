@@ -38433,3 +38433,827 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 121ms (Views: 108.4ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-10-18 13:23:15 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 334ms (Views: 311.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-18 13:23:28 -0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 155ms (Views: 150.5ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/users" for 127.0.0.1 at 2017-10-18 13:23:30 -0400
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hQOrR6rMNMhl7N64Q17qLq2q2GWlDek7y2Go2SMTXh9jWDxuHnoCeZOsJYD+nKjkNDOtAGmHhl9JH3aaTT/+Qw==", "user"=>{"name"=>"Jon Davis", "email"=>"jondavis841@gmail.com", "department_id"=>"1", "professor"=>"1"}, "commit"=>"Update"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jondavis841"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "jondavis841@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "users" SET "professor" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["professor", "t"], ["updated_at", "2017-10-18 17:23:30.656509"], ["id", 8]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 130ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-18 13:23:30 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 140ms (Views: 114.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/department/1" for 127.0.0.1 at 2017-10-18 13:23:33 -0400
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 122ms (Views: 84.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2017-10-18 13:23:35 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "article_topics" ON "topics"."id" = "article_topics"."topic_id" WHERE "article_topics"."article_id" = ?[0m  [["article_id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered articles/show.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 142ms (Views: 119.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/1/edit" for 127.0.0.1 at 2017-10-18 13:23:36 -0400
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "topics"."id" FROM "topics" INNER JOIN "article_topics" ON "topics"."id" = "article_topics"."topic_id" WHERE "article_topics"."article_id" = ?[0m  [["article_id", 1]]
+  Rendered articles/_form.html.erb (92.0ms)
+  Rendered articles/edit.html.erb within layouts/application (118.0ms)
+Completed 200 OK in 237ms (Views: 204.8ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/articles/1" for 127.0.0.1 at 2017-10-18 13:23:43 -0400
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OjYs9Uha2KqHtUAXseA2FjF9xuTEgtgj6kZ1hgXnLMBntETApAnU3xgSE0hk0Yen0GnxAlawkxjKzarlg8gyaA==", "article"=>{"name"=>"Particle creation by black holes", "description"=>"The metric expansion of space is the increase of the distance between two distant parts of the universe with time. It is an intrinsic expansion whereby the scale of space itself changes. It means that the early universe did not expand \"into\" anything and does not require space to exist \"outside\" the universe - instead space itself changed, carrying the early universe with it as it grew. This is a completely different kind of expansion than expansions and explosions we see in daily life. It also seems to be a property of the entire universe as a whole rather than a phenomenon that applies just to one part of the universe or can be observed from \"outside\" it.", "link"=>"https://link.springer.com/article/10.1007/bf02345020", "topic_ids"=>["", "1", "2"], "topics_attributes"=>{"0"=>{"name"=>"", "department_id"=>"1"}}}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" WHERE "topics"."id" IN (1, 2)[0m
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "article_topics" ON "topics"."id" = "article_topics"."topic_id" WHERE "article_topics"."article_id" = ?[0m  [["article_id", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "article_topics" ("article_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["topic_id", 1], ["created_at", "2017-10-18 17:23:43.432595"], ["updated_at", "2017-10-18 17:23:43.432595"]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "article_topics" ("article_id", "topic_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["topic_id", 2], ["created_at", "2017-10-18 17:23:43.436943"], ["updated_at", "2017-10-18 17:23:43.436943"]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "articles" WHERE "articles"."name" = ? AND ("articles"."id" != ?) LIMIT ?[0m  [["name", "Particle creation by black holes"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 38ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2017-10-18 13:23:43 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics" INNER JOIN "article_topics" ON "topics"."id" = "article_topics"."topic_id" WHERE "article_topics"."article_id" = ?[0m  [["article_id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered articles/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 136ms (Views: 112.8ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mArticleTopic Load (3.0ms)[0m  [1m[34mSELECT  "article_topics".* FROM "article_topics" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT  "article_topics".* FROM "article_topics" ORDER BY "article_topics"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:31:35 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered topics/index.html.erb within layouts/application (19.0ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `articletopics' for nil:NilClass):
+    4:   <div>
+    5:   	<h4><%= topic.name %></h4>
+    6:   	<p><%= topic.department.name%></p><br>
+    7:   	<%= @topic.articletopics.each do |articletopic| %>
+    8: 		<% if articletopic.comment %>
+    9: 			<p><%= articletopic.comment %></p>
+   10: 		<%end%>
+  
+app/views/topics/index.html.erb:7:in `block in _app_views_topics_index_html_erb___360517602_99062184'
+app/views/topics/index.html.erb:3:in `_app_views_topics_index_html_erb___360517602_99062184'
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:31:59 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered topics/index.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `articletopics' for #<Topic:0xcbe1eb0>
+Did you mean?  article_topics
+               article_topics=
+               article_topic_ids
+               article_topic_ids=
+               articles
+               article_ids):
+    4:   <div>
+    5:   	<h4><%= topic.name %></h4>
+    6:   	<p><%= topic.department.name%></p><br>
+    7:   	<%= topic.articletopics.each do |articletopic| %>
+    8: 		<% if articletopic.comment %>
+    9: 			<p><%= articletopic.comment %></p>
+   10: 		<%end%>
+  
+app/views/topics/index.html.erb:7:in `block in _app_views_topics_index_html_erb___360517602_106859040'
+app/views/topics/index.html.erb:3:in `_app_views_topics_index_html_erb___360517602_106859040'
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:33:03 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (45.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 150ms (Views: 133.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:34:23 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.9ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (45.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 179ms (Views: 153.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:34:25 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (41.5ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 142ms (Views: 128.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:35:07 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (36.9ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 196ms (Views: 168.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:35:31 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (44.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 219ms (Views: 188.2ms | ActiveRecord: 7.5ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "article_topics" SET "comment" = ?, "updated_at" = ? WHERE "article_topics"."id" = ?[0m  [["comment", "This is a comment"], ["updated_at", "2017-10-18 17:35:44.495312"], ["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:35:47 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (39.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 145ms (Views: 128.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:36:26 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.5ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (36.6ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 156ms (Views: 127.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:36:59 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT  "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ? LIMIT ?[0m  [["topic_id", 1], ["LIMIT", 11]]
+  Rendered topics/index.html.erb within layouts/application (25.0ms)
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<ArticleTopic::ActiveRecord_Associations_CollectionProxy:0xaf7af18>):
+    4:   <div>
+    5:   	<h4><%= topic.name %></h4>
+    6:   	<p><%= topic.department.name%></p>
+    7:   	<%= topic.article_topics.comments.each do |comment| %>
+    8: 		<% if comment != nil %>
+    9: 			<p><%= comment %></p>
+   10: 		<%end%>
+  
+app/views/topics/index.html.erb:7:in `block in _app_views_topics_index_html_erb___360517602_92109336'
+app/views/topics/index.html.erb:3:in `_app_views_topics_index_html_erb___360517602_92109336'
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:37:32 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT  "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ? LIMIT ?[0m  [["topic_id", 1], ["LIMIT", 11]]
+  Rendered topics/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<ArticleTopic::ActiveRecord_Associations_CollectionProxy:0xae81018>):
+    4:   <div>
+    5:   	<h4><%= topic.name %></h4>
+    6:   	<p><%= topic.department.name%></p>
+    7:   	<%= topic.article_topics.comments.each do |articletopic| %>
+    8: 		<% if articletopic.comment != nil %>
+    9: 			<p><%= articletopic.comment %></p>
+   10: 		<%end%>
+  
+app/views/topics/index.html.erb:7:in `block in _app_views_topics_index_html_erb___360517602_91576596'
+app/views/topics/index.html.erb:3:in `_app_views_topics_index_html_erb___360517602_91576596'
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:37:56 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT  "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ? LIMIT ?[0m  [["topic_id", 1], ["LIMIT", 11]]
+  Rendered topics/index.html.erb within layouts/application (19.0ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<ArticleTopic::ActiveRecord_Associations_CollectionProxy:0x68b6578>):
+    4:   <div>
+    5:   	<h4><%= topic.name %></h4>
+    6:   	<p><%= topic.department.name%></p>
+    7:   	<%= topic.article_topics.comment.each do |articletopic| %>
+    8: 		<% if articletopic.comment != nil %>
+    9: 			<p><%= articletopic.comment %></p>
+   10: 		<%end%>
+  
+app/views/topics/index.html.erb:7:in `block in _app_views_topics_index_html_erb___360517602_55035396'
+app/views/topics/index.html.erb:3:in `_app_views_topics_index_html_erb___360517602_55035396'
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:38:09 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (43.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 154ms (Views: 137.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:38:23 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (46.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 154ms (Views: 137.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:39:01 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (45.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 151ms (Views: 133.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2017-10-18 13:39:13 -0400
+Processing by TopicsController#index as HTML
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 1]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 2]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 3]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 4]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 5]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 6]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 7]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 8]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 9]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 10]]
+  [1m[36mCACHE Department Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 11]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 12]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 13]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 14]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 15]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 16]]
+  [1m[36mDepartment Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 17]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 18]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (0.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 19]]
+  [1m[36mCACHE Department Load (0.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTopic Load (1.0ms)[0m  [1m[34mSELECT "article_topics".* FROM "article_topics" WHERE "article_topics"."topic_id" = ?[0m  [["topic_id", 20]]
+  Rendered topics/index.html.erb within layouts/application (43.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 145ms (Views: 128.3ms | ActiveRecord: 5.0ms)
+
+
