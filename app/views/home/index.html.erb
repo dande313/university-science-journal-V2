@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <% if !!current_user %>
 	<h3>Welcome <%= current_user.name %></h3>
 	<p>You are registered with the <%= current_user.department.name %> department</p>

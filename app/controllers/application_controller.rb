@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
 
 
 
+  private
 
+  def require_login
+    unless current_user
+      flash[:notice] = "You must be signed in to perform this action."
+      redirect_to root_path
+    end
+  end
 
 
   protected

@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :update_records
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
@@ -72,7 +73,4 @@ class ArticlesController < ApplicationController
     	end
     end
 
-    def can_edit?
-      !!((current_user.professor? && current_user.department == @article.user.department) || @article.user == current_user)
-    end
 end
