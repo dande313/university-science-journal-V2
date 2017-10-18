@@ -1,8 +1,8 @@
-<h1>University Scientific Articles</h1>
-<p><a href="/articles/new" class="btn btn-primary">Submit Article</a></p><br>
+<h1>Topics listing</h1>
 
-<% @topics.each do |article| %>
+<% @topics.each do |topic| %>
   <div>
   	<h4><%= topic.name %></h4>
+  	<p><%= topic.department.name%></p><br>
   </div>
 <% end %>

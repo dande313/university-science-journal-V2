@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20171017013031) do
   create_table "article_topics", force: :cascade do |t|
     t.integer "article_id"
     t.integer "topic_id"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_topics_on_article_id"

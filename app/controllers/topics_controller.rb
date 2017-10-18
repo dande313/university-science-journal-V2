@@ -11,13 +11,18 @@ class TopicsController < ApplicationController
   def create
    	@topic = Topic.new(topic_params)
    	@article= Article.find_by_id(article_param[:article_id])
-	if @topic.save
-		@article.topics<< @topic
-		redirect_to ("/articles/#{@article.id}/edit")
-	else
-		format.html { render :new }
-	end
+  	if @topic.save
+  		@article.topics<< @topic
+  		redirect_to ("/articles/#{@article.id}/edit")
+  	else
+  		format.html { render :new }
+  	end
   end
+
+  def index
+    @topics = Topic.all
+  end
+
 
   def topic_params
     params.require(:topic).permit(:name, :department_id)
