@@ -6,7 +6,10 @@
   	<p><%= topic.department.name%> Department</p>
   	<% topic.article_topics.each do |articletopic| %>
 		<% if articletopic.comment != nil %>
-			<p>Comment: <%= articletopic.comment %></p>
+			<div>
+				Partaining to "<%= articletopic.article_name %>"<br>
+				Comment: <%= articletopic.comment %>
+			</div>
 		<%end%>
 	<%end%>
 	-------------------------------------------------------------

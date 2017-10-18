@@ -5,9 +5,11 @@
 <% end %>
 
 <h1><%= @topic.name %></h1>
-<%= @topic.articletopics.each do |articletopic| %>
-	<% if articletopic.comment %>
-		<p><%= articletopic.comment %></p>
+<% @topic.article_topics.each do |articletopic| %>
+	<% if articletopic.comment != nil %>
+		<p>Pertaining to "<%= articletopic.article_name%>"
+		<p>Comment: <%= articletopic.comment %></p>
+		<p>------------------------------------------------------<p>
 	<%end%>
 <%end%>
 
