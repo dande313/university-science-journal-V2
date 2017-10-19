@@ -65,6 +65,10 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:name, :description, :link, :user_id, topic_ids:[], topics_attributes: [:name, :department_id])
     end
 
+    def can_edit?
+      !!((current_user.professor? && current_user.department == @article.user.department) || @article.user == current_user)
+    end
+
     def update_records
     	Article.all.each do |article|
     		if !article.user

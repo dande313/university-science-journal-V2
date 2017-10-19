@@ -53,7 +53,7 @@ class User < ApplicationRecord
 
 
   def password_required?
-    super && provider.blank?
+    provider.blank? && super
   end
 
   def update_with_password(params, *options)
