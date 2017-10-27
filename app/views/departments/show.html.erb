@@ -1,11 +1,43 @@
-<h1>University Scientific Articles</h1>
 
-<% @articles.each do |article| %>
-  <div>
-  	<h4><%= article.name %></h4>
-  	<p>Submitted by <%= article.user.name %></p>
-  	<p><a href="/articles/<%= article.id %>">View</a></p>
 
-    -----------------------------------------------------------------------------------------------
-  </div>
-<% end %>
+
+<div class="card">
+  <h1 class="articleName"><%= @article.name %></h1>
+  <h3>University <%=@article.user.department.name %> Department</h3>
+  <p>Topics: <% @article.topics.each do |topic| %>--<%= topic.name %> <% end %> </p>
+  <p><%= @article.description %></p>
+  <p><a href="<%= @article.link %>">URL Link</a></p>
+  <p>Submitted by <%= @article.user.name %> </p><br>
+</div>
+
+<a href="#" class="js-prev" data-id="<%= @article.id %>">Prev Article</a>
+<a href="#" class="js-next" data-id="<%= @article.id %>">Next Article</a>
+
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $(".js-prev").on("click", function() {
+      var prevId = parseInt($(".js-prev").attr("data-id")) - 1;
+      console.log(prevId)
+      $.getJSON("/articles/" + prevId + "/data", function(data) {
+        $(".productName").text(data["name"])
+        $(".productInventory").text(data["inventory"])
+        $(".productPrice").text(data["price"])
+        $(".productDescription").text(data["description"])
+        $(".js-prev").attr("data-id", data["id"])
+        $(".js-next").attr("data-id", data["id"])
+      })
+    })
+  })
+
+	$(function(){
+	$(".js-next").on("click", function() {
+	  var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+	  console.log(nextId)
+	  $.getJSON("/articles/" + nextId + "/data", function(data) {
+	    $(".articleName").text(data["name"])
+	    $(".js-prev").attr("data-id", data["id"])
+	    $(".js-next").attr("data-id", data["id"])
+	  })
+	})
+	})
+</script>

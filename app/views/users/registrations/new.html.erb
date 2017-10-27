@@ -20,7 +20,7 @@
       </div>
       <br/>
 
-      <% if f.object.password_required? %>
+      <% if !f.object.encrypted_password.blank? %>
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>

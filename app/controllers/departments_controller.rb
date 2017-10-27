@@ -4,9 +4,8 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-
-  	@params = params[:id]
-  	@articles = Article.all.collect {|article| next if article.user.department.id != params[:id].to_i; article}.compact
-
+  	@department_id = params[:id]
+  	@articles = Article.all.collect {|article| next if article.user.department.id != @department_id.to_i; article}.compact
+  	@article = @articles.first
   end
 end

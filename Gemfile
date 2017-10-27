@@ -55,3 +55,5 @@ gem 'bcrypt', platforms: :ruby
 gem 'omniauth'
 gem 'omniauth-google-oauth2' 
 gem 'dotenv-rails'
+gem 'jquery-rails'
+gem 'active_model_serializers'
