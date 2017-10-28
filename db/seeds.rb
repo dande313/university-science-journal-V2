@@ -29,6 +29,21 @@ Article.create ([
 			link:'https://journals.aps.org/prd/abstract/10.1103/PhysRevD.7.2333', 
 			user_id: 1},
 
+			{ name: 'The Suns in our Galaxy', 
+			description: 'So far, astronomers have found more than 500 solar systems and are discovering new ones every year. Given how many they have found in our own neighborhood of the Milky Way galaxy, scientists estimate that there may be tens of billions of solar systems in our galaxy, perhaps even as many as 100 billion.. In this paper we make this similarity the basis of a thermodynamic approach to black-hole physics. After a brief review of the elements of the theory of information, we discuss black-hole physics from the point of view of information theory. We show that it is natural to introduce the concept of black-hole entropy as the measure of information about a black-hole interior which is inaccessible to an exterior observer. Considerations of simplicity and consistency, and dimensional arguments indicate that the black-hole entropy is equal to the ratio of the black-hole area to the square of the Planck length times a dimensionless constant of order unity. A different approach making use of the specific properties of Kerr black holes and of concepts from information theory leads to the same conclusion, and suggests a definite value for the constant. The physical content of the concept of black-hole entropy derives from the following generalized version of the second law: When common entropy goes down a black hole, the common entropy in the black-hole exterior plus the black-hole entropy never decreases. The validity of this version of the second law is supported by an argument from information theory as well as by several examples.', 
+			link:'https://spaceplace.nasa.gov/review/dr-marc-space/solar-systems-in-galaxy.html', 
+			user_id: 1},
+
+			{ name: 'What is a Supernova', 
+			description: 'A star is in balance between two opposite forces. The star’s gravity tries to squeeze the star into the smallest, tightest ball possible. But the nuclear fuel burning in the star’s core creates strong outward pressure. This outward push resists the inward squeeze of gravity. When a massive star runs out of fuel, it cools off. This causes the pressure to drop. Gravity wins out, and the star suddenly collapses. Imagine something one million times the mass of Earth collapsing in 15 seconds! The collapse happens so quickly that it creates enormous shock waves that cause the outer part of the star to explode!', 
+			link:'https://spaceplace.nasa.gov/supernova/en/', 
+			user_id: 7},
+
+			{ name: 'Your Brain on Drugs', 
+			description: 'Hard drugs are not very cool, but science requires sacrifice! Psychological science is currently in conceptual disarray, characterized by unconnected mini-theories and isolated empirical findings. We lack a theory of the functional properties of the human mind that could provide the needed integration—a theory about what the mechanisms of mind are "designed" to do. Evolutionary psychology provides the conceptual tools for emerging from this fragmented state. In this target article, I outline the fundamental premises of evolutionary psychology; illustrate the application of evolutionary psychology to domains such as reasoning, social exchange, language, aggression, jealousy, sex, and status; and then consider the implications of evolutionary psychology for the key branches of social, personality, developmental, and cognitive psychology and suggest ways in which these disciplinary boundaries can be transcended. I conclude by looking at the emergence of evolutionary psychology as our field matures into the 21st century.',
+			link:'http://www.sciencedirect.com/science/article/pii/S0301008298000379', 
+			user_id: 2},
+
 			{ name: 'Evolutionary Psychology: A New Paradigm for Psychological Science', 
 			description: 'Psychological science is currently in conceptual disarray, characterized by unconnected mini-theories and isolated empirical findings. We lack a theory of the functional properties of the human mind that could provide the needed integration—a theory about what the mechanisms of mind are "designed" to do. Evolutionary psychology provides the conceptual tools for emerging from this fragmented state. In this target article, I outline the fundamental premises of evolutionary psychology; illustrate the application of evolutionary psychology to domains such as reasoning, social exchange, language, aggression, jealousy, sex, and status; and then consider the implications of evolutionary psychology for the key branches of social, personality, developmental, and cognitive psychology and suggest ways in which these disciplinary boundaries can be transcended. I conclude by looking at the emergence of evolutionary psychology as our field matures into the 21st century.',
 			link:'http://www.tandfonline.com/doi/abs/10.1207/s15327965pli0601_1', 
@@ -38,6 +53,12 @@ Article.create ([
 			description: 'Psychological science is currently in conceptual disarray, characterized by unconnected mini-theories and isolated empirical findings. We lack a theory of the functional properties of the human mind that could provide the needed integration—a theory about what the mechanisms of mind are "designed" to do. Evolutionary psychology provides the conceptual tools for emerging from this fragmented state. In this target article, I outline the fundamental premises of evolutionary psychology; illustrate the application of evolutionary psychology to domains such as reasoning, social exchange, language, aggression, jealousy, sex, and status; and then consider the implications of evolutionary psychology for the key branches of social, personality, developmental, and cognitive psychology and suggest ways in which these disciplinary boundaries can be transcended. I conclude by looking at the emergence of evolutionary psychology as our field matures into the 21st century.',
 			link:'http://www.sciencedirect.com/science/article/pii/S0301008298000379', 
 			user_id: 2},
+
+			{ name: 'Evolution of the sixth sense', 
+			description: 'We lack a theory of the functional properties of the human mind that could provide the needed integration—a theory about what the mechanisms of mind are "designed" to do. But we know we can read minds now; pretty cool if you ask me. Evolutionary psychology provides the conceptual tools for emerging from this fragmented state. In this target article, I outline the fundamental premises of evolutionary psychology; illustrate the application of evolutionary psychology to domains such as reasoning, social exchange, language, aggression, jealousy, sex, and status; and then consider the implications of evolutionary psychology for the key branches of social, personality, developmental, and cognitive psychology and suggest ways in which these disciplinary boundaries can be transcended. I conclude by looking at the emergence of evolutionary psychology as our field matures into the 21st century.',
+			link:'http://www.tandfonline.com/doi/abs/10.1207/s15327965pli0601_1', 
+			user_id: 2},
+
 
 			{ name: 'Spontaneous-combustion propensity of New Zealand coals under adiabatic conditions', 
 			description: 'Pulverised New Zealand coal samples have been tested from an initial temperature of 40°C and reacted adiabatically in an oven with oxygen to provide a full temperature history of auto-oxidation up to the self-sustained process of combustion. This procedure produces a self-heating rate index, R70, calculated as the ratio of the time taken to reach 70°C (°C/h). The R70 index is a measure of the coals propensity to spontaneous combustion. R70 values for New Zealand coals are much higher than any previously published results. They show a rank dependence, whereby subbituminous coals have the highest propensity to spontaneous combustion (14.91–17.23°C/h). A lignite sample has an R70 value of 7.76°C/h, and high-volatile bituminous B coals have R70 values of 0.31–2.23°C/h. Samples stored for 2 years show the same rank trend. The nature of this trend is most likely a function of the internal surface area of the coal that governs the available sites for oxidation. Calculating the Suggate rank for any New Zealand coal can be used to rate its propensity to spontaneous combustion. Resin bodies in the subbituminous coal show no propensity to spontaneous combustion.',
@@ -49,6 +70,15 @@ Article.create ([
 			link:'http://www.sciencedirect.com/science/article/pii/S0166516200000343', 
 			user_id: 3},
 
+			{ name: 'Why certain Chemistry professors make one of the most ASTOUNDING and INCREDIBLE Sciences so boring...', 
+			description: 'When the mind reaches a certain level of intelligence (by taking in lots of complex data), it loses its capacity to empathize with other. While this is psychology research, we know in the chemistry department that the psyches are fundamentally lazy and not very smart. Pulverised New Zealand coal samples have been tested from an initial temperature of 40°C and reacted adiabatically in an oven with oxygen to provide a full temperature history of auto-oxidation up to the self-sustained process of combustion. This procedure produces a self-heating rate index, R70, calculated as the ratio of the time taken to reach 70°C (°C/h). The R70 index is a measure of the coals propensity to spontaneous combustion. R70 values for New Zealand coals are much higher than any previously published results. They show a rank dependence, whereby subbituminous coals have the highest propensity to spontaneous combustion (14.91–17.23°C/h). A lignite sample has an R70 value of 7.76°C/h, and high-volatile bituminous B coals have R70 values of 0.31–2.23°C/h. Samples stored for 2 years show the same rank trend. The nature of this trend is most likely a function of the internal surface area of the coal that governs the available sites for oxidation. Calculating the Suggate rank for any New Zealand coal can be used to rate its propensity to spontaneous combustion. Resin bodies in the subbituminous coal show no propensity to spontaneous combustion.',
+			link:'http://www.sciencedirect.com/science/article/pii/S0166516200000343', 
+			user_id: 3},
+
+			{ name: 'Spontaneous-combustion propensity of New Zealand coals under adiabatic conditions', 
+			description: 'Pulverised New Zealand coal samples have been tested from an initial temperature of 40°C and reacted adiabatically in an oven with oxygen to provide a full temperature history of auto-oxidation up to the self-sustained process of combustion. This procedure produces a self-heating rate index, R70, calculated as the ratio of the time taken to reach 70°C (°C/h). The R70 index is a measure of the coals propensity to spontaneous combustion. R70 values for New Zealand coals are much higher than any previously published results. They show a rank dependence, whereby subbituminous coals have the highest propensity to spontaneous combustion (14.91–17.23°C/h). A lignite sample has an R70 value of 7.76°C/h, and high-volatile bituminous B coals have R70 values of 0.31–2.23°C/h. Samples stored for 2 years show the same rank trend. The nature of this trend is most likely a function of the internal surface area of the coal that governs the available sites for oxidation. Calculating the Suggate rank for any New Zealand coal can be used to rate its propensity to spontaneous combustion. Resin bodies in the subbituminous coal show no propensity to spontaneous combustion.',
+			link:'http://www.sciencedirect.com/science/article/pii/S0166516200000343', 
+			user_id: 3},
 
 			{ name: 'Nukes of our Proud Nation', 
 			description: 'First of all, thanks to that really annoying thing called E = MC², you need a big mass to make a big boom. Therefore, we need something like uranium, which would have greater mass. Hence, we would have to add Uranium into the game.
@@ -92,6 +122,26 @@ Topic.create ([
 	{ name: 'Metaphysics', department_id: 5},
 	{ name: 'Psychophysiology', department_id: 5},
 	{ name: 'Sociology', department_id: 5},
+	])
+
+ArticleTopic.create ([
+	{ article_id: 1, topic_id: 1, comment: "Black Holes are really the same thing as a dead sun. Shouldn't this be listed as a 'Sun' topic instead?"},
+	{ article_id: 2, topic_id: 1, comment: "We let a black hole escape from the lab. Let me know if any of you have seen it -AE"},
+	{ article_id: 2, topic_id: 3},
+	{ article_id: 2, topic_id: 4},
+	{ article_id: 3, topic_id: 1},
+	{ article_id: 4, topic_id: 2},
+	{ article_id: 4, topic_id: 3},
+	{ article_id: 5, topic_id: 5},
+	{ article_id: 5, topic_id: 7},
+	{ article_id: 6, topic_id: 6, comment: "Wondering if we should make an additional topic called 'poisons'."},
+	{ article_id: 7, topic_id: 6, comment: "Reworking"},
+	{ article_id: 8, topic_id: 8, comment: "Should we stick this in psych's department? They're not doing much"},
+	{ article_id: 9, topic_id: 9},
+	{ article_id: 10, topic_id: 10},
+	{ article_id: 11, topic_id: 11},
+	{ article_id: 12, topic_id: 10, comment: "We should really have that Kim kid evaluated by Psych"},
+	{ article_id: 12, topic_id: 12, comment: "Do we even have a psych department?"},
 	])
 
 
