@@ -23,10 +23,13 @@
 
 <script type="text/javascript" charset="utf-8">
 
+$( document ).ready(function() {
+  adjustArticleNav();
+});
+
 function nextArticle() {
     var nextId = parseInt($("#next").attr("data-id")) + 1;
     $.get("/articles/" + nextId + ".json", function(data) {
-      console.log(data)
       $("#articleName").text(data["name"])
       $("#articleDescription").text(data["description"])
       $("#articleLink").attr('href', data["link"]);
@@ -37,8 +40,8 @@ function nextArticle() {
 
 function prevArticle() {
     var prevId = parseInt($("#prev").attr("data-id")) - 1;
+
     $.get("/articles/" + prevId + ".json", function(data) {
-      console.log(data)
       $("#articleName").text(data["name"])
       $("#articleDescription").text(data["description"])
       $("#articleLink").attr('href', data["link"]);
@@ -48,6 +51,27 @@ function prevArticle() {
 };
 
 
+function adjustArticleNav(){
+  $("#prev, #next").prop("disabled",false);
+  firstArticleCheck();
+  lastArticleCheck();
+}
 
+
+function firstArticleCheck(){
+  var prevId = parseInt($("#next").attr("data-id")) - 1;
+  $.get("/articles/" + prevId + ".json").fail(function(){
+    $("#prev").prop("disabled",true);
+  })
+}
+
+function lastArticleCheck(){
+  var nextId = parseInt($("#next").attr("data-id")) + 1;
+  $.get("/articles/" + nextId + ".json").fail(function(){
+    $("#next").prop("disabled",true);
+  })
+}
+
+  
 
 </script>
