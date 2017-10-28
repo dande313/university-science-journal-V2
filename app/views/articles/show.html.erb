@@ -3,13 +3,15 @@
     <%= flash[:notice] %></p>
   </div>
 <% end %>
+<input type="button" class="button" id="prev" onclick="prevArticle()" data-id="<%=@article.id%>" value="PREV"/>
+<input type="button" class="button" id="next" onclick="nextArticle()" data-id="<%=@article.id%>" value="NEXT"/>
 
 <div class="card">
-  <h1><%= @article.name %></h1>
+  <h1 id="articleName"><%= @article.name %></h1>
   <h3>University <%=@article.user.department.name %> Department</h3>
   <p>Topics: <% @article.topics.each do |topic| %>--<%= topic.name %> <% end %> </p>
-  <p><%= @article.description %></p>
-  <p><a href="<%= @article.link %>">URL Link</a></p>
+  <div id="articleDescription"><%= @article.description %></div>
+  <p><a id='articleLink' href="<%= @article.link %>">URL Link</a></p>
   <p>Submitted by <%= @article.user.name %> </p><br>
 
 <% if can_edit?%>
@@ -17,3 +19,35 @@
   <%= button_to "Delete", { action: "destroy", id: @article.id }, method: :delete, data: { confirm: 'Are you sure?'}, form: {style: 'display:inline-block;'} %></p>
 <% end %>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+
+function nextArticle() {
+    var nextId = parseInt($("#next").attr("data-id")) + 1;
+    $.get("/articles/" + nextId + ".json", function(data) {
+      console.log(data)
+      $("#articleName").text(data["name"])
+      $("#articleDescription").text(data["description"])
+      $("#articleLink").attr('href', data["link"]);
+      $("#prev, #next").attr('data-id', data["id"]);
+      adjustArticleNav();
+    });
+};
+
+function prevArticle() {
+    var prevId = parseInt($("#prev").attr("data-id")) - 1;
+    $.get("/articles/" + prevId + ".json", function(data) {
+      console.log(data)
+      $("#articleName").text(data["name"])
+      $("#articleDescription").text(data["description"])
+      $("#articleLink").attr('href', data["link"]);
+      $("#prev, #next").attr('data-id', data["id"]);
+      adjustArticleNav();
+    });
+};
+
+
+
+
+</script>
