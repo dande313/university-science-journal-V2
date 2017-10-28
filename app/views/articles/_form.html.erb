@@ -22,7 +22,7 @@
   <%= f.fields_for :topics, @article.topics.build do |topic_fields| %>
     <%= topic_fields.label "New Topic:" %><%= topic_fields.text_field :name %>
     <%= topic_fields.hidden_field :department_id, :value => current_user.department.id %>
-  <% end %>
+  <% end %></div>
 
 
   <br><br>

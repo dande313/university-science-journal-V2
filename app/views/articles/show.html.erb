@@ -20,14 +20,11 @@
 <% end %>
 </div><br>
 
-<div id=comments><input type="button" class="button" id="prev" onclick="showComments()" data-id="<%=@article.id%>" value="Show comments"/></div>
-
-
-
-
 
 <script type="text/javascript" charset="utf-8">
 
+
+// Article Navigation Code
 $( document ).ready(function() {
   adjustArticleNav();
 });
@@ -84,5 +81,7 @@ function lastArticleCheck(){
     $("#next").prop("disabled",true);
   })
 }
+
+//Article Nav end
 
 </script>

@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @article= Article.new
+    @topics = Topic.all.collect {|topic| next if topic.department_id != current_user.department.id; topic}.compact
   end
 
   def show
@@ -33,7 +35,7 @@ class ArticlesController < ApplicationController
     @topics = Topic.all.collect {|topic| next if topic.department_id != current_user.department.id; topic}.compact
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { render json: @article, status: 201}
       else
         format.html { render :new }
       end
