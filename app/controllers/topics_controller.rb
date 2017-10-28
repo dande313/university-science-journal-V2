@@ -27,6 +27,10 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @topic}
+    end
   end
 
   def topic_params

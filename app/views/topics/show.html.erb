@@ -4,13 +4,40 @@
   </div>
 <% end %>
 
-<h1><%= @topic.name %></h1>
-<% @topic.article_topics.each do |articletopic| %>
-	<% if articletopic.comment != nil %>
-		<p>Pertaining to "<%= articletopic.article_name%>"
-		<p>Comment: <%= articletopic.comment %></p>
-		<p>------------------------------------------------------<p>
-	<%end%>
-<%end%>
+<h1><%= @topic.name %></h1><br>
+<h4>Associated Articles</h4>
+<div id="articleList" data-id="<%=@topic.id%>"><div>
 
-<p></p>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+$( document ).ready(function() {
+  listArticles();
+});
+
+
+function listArticles(){
+	var topicId = parseInt($("#articleList").attr("data-id"))
+	var topicUrl = "/topics/" + topicId + ".json"
+	$.get(topicUrl, function(data) {
+		console.log(data["articles"])
+	    renderArticles(data["articles"]);
+	  });
+}
+
+function renderArticles(articles){
+	articles.forEach(function(article) {
+		var articleUrl = "/articles/" + article["id"] + ".json"
+		$.get(articleUrl, function(data) {
+			$("#articleList").append(`${data["name"]}<br>` +
+	    	`Written by ${data["user"]["name"]}<br>`+
+	    	`<a href="/articles/${data["id"]}">View</a><br>`+
+	    	"-----------------------------------------------<br><br>"
+	    	)
+		});
+	}); 
+}
+</script>

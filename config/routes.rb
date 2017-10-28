@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:show, :index]
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
               :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-
+  resources :users, only: [:show]
   root "home#index"
   get '/articles/:id', to: 'articles#show'
   get '/articles/:id/destroy', to: 'articles#destroy'
