@@ -21,11 +21,19 @@ $( document ).ready(function() {
 
 function listArticles(){
 	var topicId = parseInt($("#articleList").attr("data-id"))
-	var topicUrl = "/topics/" + topicId + ".json"
-	$.get(topicUrl, function(data) {
-		console.log(data["articles"])
-	    renderArticles(data["articles"]);
-	  });
+	var articalsUrl = "/topics/" + topicId + "/articles.json"
+	$.get(articalsUrl, function(articles) {
+		articles.forEach(function(article) {
+			$("#articleList").append(`
+				<div>
+					<h3>${article.name}</h3>
+					<p>Written by ${article.user.name}</p>
+					<a href="/articles/${article.id}">View</a><br>
+					-----------------------------------------------<br><br>
+				</div>
+			`)
+		})
+	});
 }
 
 function renderArticles(articles){

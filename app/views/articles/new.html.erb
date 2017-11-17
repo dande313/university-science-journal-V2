@@ -1,4 +1,4 @@
-<h1>New Article</h1>
+<h1 id="header">New Article</h1>
 <div id="articleForm">
 	<%= render 'form' %>
 </div>
@@ -16,7 +16,7 @@
       posting.done(function(data) {
       	var articleHtml = getInfoFromPost(data);
       	$("#createdArticle").html(articleHtml)
-      	$("#articleForm, h1").hide()
+      	$("#articleForm, #header").hide()
         $("#notice").text("Article Successfully Created")
       });
     });
@@ -25,28 +25,25 @@
 
   function getInfoFromPost(data){
   	let articleData = JSON.parse(data);
-  	var newArticle = new Article(articleData["id"], articleData["name"], articleData["description"], articleData["link"], articleData["topics"], articleData["department"], articleData["user"]);
+  	var newArticle = new Article(articleData);
   	return newArticle.format()
   }
 
-  function Article(id, name, description = "", link = "", topics = [], department, user){
-  	this.id = id;
-  	this.name = name;
-  	this.description = description;
-  	this.link = link;
-  	this.topics = topics;
-  	console.log(this.topics)
-  	this.department = department["name"];
-  	this.author = user["name"];
-  	this.format = function (){
-  		var articleHtml = `<h1>${this.name}</h1>` +
-  		`<h3>University ${this.department} Department</h3>` +
-  		setTopics(this.topics) +
-  		`<p>${this.description}</p>` +
-  		`<a id='articleLink' href=${this.link}>URL Link</a>`+
-  		`<p>Submitted by ${this.author}</p>`
-  		return articleHtml
-  	}
+  function Article(attributes){
+    for (var key in attributes) {
+        this[key] = attributes[key]
+    }
+  }
+
+  Article.prototype.format = function() {
+    return (`
+      <h1>${this.name}</h1>
+      <h3>University ${this.department.name} Department</h3>
+      ${setTopics(this.topics)}
+      <p>${this.description}</p>
+      <a id='articleLink' href=${this.link}>URL Link</a>
+      <p>Submitted by ${this.user.name}</p>
+    `)
   }
 
   function setTopics(data){

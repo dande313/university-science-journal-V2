@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/articles/:id/destroy', to: 'articles#destroy'
   get '/department/:id', to: 'departments#show'
   get '/articles/:id/topics/new', to: 'topics#new'
+  get '/topics/:topic_id/articles', to: 'articles#index'
 end

@@ -5,9 +5,18 @@ class ArticlesController < ApplicationController
   before_action :require_login, only: [:new, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
-    @article= Article.new
-    @topics = Topic.all.collect {|topic| next if topic.department_id != current_user.department.id; topic}.compact
+    if params[:topic_id]
+      @topic = Topic.find_by(id: params[:topic_id])
+      @articles = @topic.articles
+    else
+      @articles = Article.all
+      @article= Article.new
+      @topics = Topic.all.collect {|topic| next if topic.department_id != current_user.department.id; topic}.compact
+    end
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @articles }
+    end
   end
 
   def show
